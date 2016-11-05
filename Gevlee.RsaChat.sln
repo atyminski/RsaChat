@@ -10,6 +10,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Gevlee.RsaChat.Server.Console", "Gevlee.RsaChat.Server.Console\Gevlee.RsaChat.Server.Console.xproj", "{0A540463-C578-419F-B16B-A248B285EA8F}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Gevlee.RsaChat.Server.Core", "Gevlee.RsaChat.Server.Core\Gevlee.RsaChat.Server.Core.xproj", "{408EF813-9BFB-4CAE-A095-A3ABD8708766}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Client.App", "Gevlee.RsaChat.Client.App\Gevlee.RsaChat.Client.App.csproj", "{B8016495-AA81-45F0-995C-5462EF49496F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{C11CA808-F868-42B8-BAE3-80187CC0AFD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{3C9EB8FE-7DAD-4E83-94FE-FF50449D3842}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{1B05D79E-B31F-49DC-A796-4559A2A047FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +30,21 @@ Global
 		{0A540463-C578-419F-B16B-A248B285EA8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A540463-C578-419F-B16B-A248B285EA8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A540463-C578-419F-B16B-A248B285EA8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{408EF813-9BFB-4CAE-A095-A3ABD8708766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{408EF813-9BFB-4CAE-A095-A3ABD8708766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{408EF813-9BFB-4CAE-A095-A3ABD8708766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{408EF813-9BFB-4CAE-A095-A3ABD8708766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8016495-AA81-45F0-995C-5462EF49496F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8016495-AA81-45F0-995C-5462EF49496F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8016495-AA81-45F0-995C-5462EF49496F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8016495-AA81-45F0-995C-5462EF49496F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0A540463-C578-419F-B16B-A248B285EA8F} = {3C9EB8FE-7DAD-4E83-94FE-FF50449D3842}
+		{408EF813-9BFB-4CAE-A095-A3ABD8708766} = {3C9EB8FE-7DAD-4E83-94FE-FF50449D3842}
+		{B8016495-AA81-45F0-995C-5462EF49496F} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
 	EndGlobalSection
 EndGlobal

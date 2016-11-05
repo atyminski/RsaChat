@@ -1,10 +1,13 @@
-﻿namespace Gevlee.RsaChat.Server.Console
+﻿using System;
+using ColoredConsole;
+
+namespace Gevlee.RsaChat.Server.Console
 {
 	public class Program
 	{
 		public static void Main(string[] args)
 		{
-			System.Console.WriteLine("It works!");
+			ColorConsole.WriteLine(new ColorToken("It works!", ConsoleColor.Green));
 			System.Console.ReadKey();
 		}
 	}
