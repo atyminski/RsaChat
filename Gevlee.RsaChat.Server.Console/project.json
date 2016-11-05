@@ -1,0 +1,16 @@
+﻿{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "Akka": "1.1.2"
+  },
+
+  "frameworks": {
+    "net451": {
+      "imports": "dotNet451"
+    }
+  }
+}
