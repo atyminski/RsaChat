@@ -1,3 +1,5 @@
 .vs
 obj
 bin
+*lock.json
+*.user
