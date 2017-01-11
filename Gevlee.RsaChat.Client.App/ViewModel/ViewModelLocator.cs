@@ -1,61 +1,31 @@
-/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:Gevlee.RsaChat.Client.App"
-                           x:Key="Locator" />
-  </Application.Resources>
-  
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-
-  You can also use Blend to do all this with the tool's support.
-  See http://www.galasoft.ch/mvvm
-*/
-
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Ioc;
+using Autofac;
+using Autofac.Extras.CommonServiceLocator;
+using Gevlee.RsaChat.Client.App.Core.ViewModel;
+using Gevlee.RsaChat.Client.App.Dependencies;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Gevlee.RsaChat.Client.App.ViewModel
 {
-    /// <summary>
-    /// This class contains static references to all the view models in the
-    /// application and provides an entry point for the bindings.
-    /// </summary>
-    public class ViewModelLocator
-    {
-        /// <summary>
-        /// Initializes a new instance of the ViewModelLocator class.
-        /// </summary>
-        public ViewModelLocator()
-        {
-            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+	public class ViewModelLocator
+	{
+		public ViewModelLocator()
+		{
+			var builder = new ContainerBuilder();
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
+			//if (ViewModelBase.IsInDesignModeStatic)
+			//{
+			//}
+			//else
+			//{
+				
+			//}
 
-            SimpleIoc.Default.Register<MainViewModel>();
-        }
+			builder.RegisterModule<DefaultDependencies>();
+			var container = builder.Build();
 
-        public MainViewModel Main
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
-        }
-        
-        public static void Cleanup()
-        {
-            // TODO Clear the ViewModels
-        }
-    }
+			ServiceLocator.SetLocatorProvider(() => new AutofacServiceLocator(container));
+		}
+
+		public IMainViewModel Main => ServiceLocator.Current.GetInstance<IMainViewModel>();
+	}
 }

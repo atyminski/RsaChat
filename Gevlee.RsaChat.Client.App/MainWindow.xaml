@@ -4,9 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gevlee.RsaChat.Client.App"
+		xmlns:views="clr-namespace:Gevlee.RsaChat.Client.App.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Rsa Chat Client" Height="350" Width="525"
+		DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="20"/>
+			<RowDefinition Height="243*"/>
+			<RowDefinition Height="34*"/>
+			<RowDefinition Height="25"/>
+		</Grid.RowDefinitions>
+		<views:MenuView Grid.Column="0" Grid.Row="0" DataContext="{Binding MenuViewModel}"></views:MenuView>
+		<views:ChatBoxView Grid.Column="0" Grid.Row="1"></views:ChatBoxView>
+		<views:MessageTypingView Grid.Column="0" Grid.Row="2"></views:MessageTypingView>
+		<views:StatusBarView Grid.Column="0" Grid.Row="3" DataContext="{Binding StatusBarViewModel}"></views:StatusBarView>
+	</Grid>
 </Window>

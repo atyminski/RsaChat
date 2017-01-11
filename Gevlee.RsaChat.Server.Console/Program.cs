@@ -1,13 +1,19 @@
 ﻿using System;
-using ColoredConsole;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Akka.Actor;
+using Gevlee.RsaChat.Common.Actors;
 
 namespace Gevlee.RsaChat.Server.Console
 {
-	public class Program
+	class Program
 	{
-		public static void Main(string[] args)
+		static void Main(string[] args)
 		{
-			ColorConsole.WriteLine(new ColorToken("It works!", ConsoleColor.Green));
+			var system = ActorSystem.Create("RsaChatSystem");
+			system.ActorOf(Props.Create<ServerCoreActor>(), "core");
 			System.Console.ReadKey();
 		}
 	}
