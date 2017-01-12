@@ -1,0 +1,22 @@
+version: 0.1.{build}
+configuration: Release
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+environment:
+  APPVEYOR_REPO_TAG: true
+before_build:
+- cmd: nuget restore
+build:
+  verbosity: minimal
+after_build:
+- cmd: >-
+    7z.exe a bin\client.zip Gevlee.RsaChat.Client.App\bin\Release\*
+
+    7z.exe a bin\server.zip Gevlee.RsaChat.Server.Console\bin\Release\*
+artifacts:
+- path: bin\*.zip
+  name: client
