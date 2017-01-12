@@ -59,6 +59,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gevlee.RsaChat.Client.Model\Gevlee.RsaChat.Client.Model.csproj">
+      <Project>{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}</Project>
+      <Name>Gevlee.RsaChat.Client.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gevlee.RsaChat.Common.Messages\Gevlee.RsaChat.Common.Messages.csproj">
       <Project>{3EFCFD21-44F7-4794-A0F9-612E1EC68581}</Project>
       <Name>Gevlee.RsaChat.Common.Messages</Name>

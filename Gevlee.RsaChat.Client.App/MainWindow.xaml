@@ -16,7 +16,7 @@
 			<RowDefinition Height="25"/>
 		</Grid.RowDefinitions>
 		<views:MenuView Grid.Column="0" Grid.Row="0" DataContext="{Binding MenuViewModel}"></views:MenuView>
-		<views:ChatBoxView Grid.Column="0" Grid.Row="1"></views:ChatBoxView>
+		<views:ChatBoxView Grid.Column="0" Grid.Row="1" DataContext="{Binding ChatBoxViewModel}"></views:ChatBoxView>
 		<views:MessageTypingView Grid.Column="0" Grid.Row="2"></views:MessageTypingView>
 		<views:StatusBarView Grid.Column="0" Grid.Row="3" DataContext="{Binding StatusBarViewModel}"></views:StatusBarView>
 	</Grid>

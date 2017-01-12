@@ -11,14 +11,17 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 		public MainViewModel(
 			IEventAggregator eventAggregator, 
 			IMenuViewModel menuViewModel,
-			IStatusBarViewModel statusBarViewModel)
+			IStatusBarViewModel statusBarViewModel,
+			IChatBoxViewModel chatBoxViewModel)
 		{
 			this.eventAggregator = eventAggregator;
+			ChatBoxViewModel = chatBoxViewModel;
 			MenuViewModel = menuViewModel;
 			StatusBarViewModel = statusBarViewModel;
 		}
 
 		public IMenuViewModel MenuViewModel { get; }
 		public IStatusBarViewModel StatusBarViewModel { get; }
+		public IChatBoxViewModel ChatBoxViewModel { get; }
 	}
 }

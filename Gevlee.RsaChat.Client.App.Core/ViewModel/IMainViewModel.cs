@@ -4,5 +4,6 @@
 	{
 		IMenuViewModel MenuViewModel { get; }
 		IStatusBarViewModel StatusBarViewModel { get; }
+		IChatBoxViewModel ChatBoxViewModel {get;}
 	}
 }

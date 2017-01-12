@@ -1,6 +1,7 @@
 ﻿using System;
 using Akka.Actor;
 using Akka.Event;
+using Gevlee.RsaChat.Client.Model;
 using Gevlee.RsaChat.Common.Messages;
 
 namespace Gevlee.RsaChat.Common.Actors
@@ -14,7 +15,12 @@ namespace Gevlee.RsaChat.Common.Actors
 				Sender.Tell(new ConnectionReference()
 				{
 					Status = true,
-					ClientName = request.NicknameProposition
+					ClientName = request.NicknameProposition,
+					Message = new ChatMessage()
+					{
+						Autor = "Server",
+						Content = $"Witaj {request.NicknameProposition}! Zostałeś podłączony do chatu. Miłej konwersacji!"
+					}
 				});
 				Context.GetLogger().Info($"Connected: {request.NicknameProposition}");
 			});

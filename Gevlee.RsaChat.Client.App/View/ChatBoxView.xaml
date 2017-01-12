@@ -3,10 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:fake="clr-namespace:Gevlee.RsaChat.Client.App.FakeViewModel"
              xmlns:local="clr-namespace:Gevlee.RsaChat.Client.App.View"
+			 d:DataContext="{d:DesignInstance Type=fake:FakeChatBoxViewModel, IsDesignTimeCreatable=True}"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+	<Grid>
+		<ListView ItemsSource="{Binding ChatMessages}" HorizontalContentAlignment="Stretch">
+			<!--<ListView.View>
+				<GridView>
+					<GridViewColumn DisplayMemberBinding="{Binding TimeStamp}" Header="TimeStamp" />
+					<GridViewColumn DisplayMemberBinding="{Binding UpdateData}" />
+				</GridView>
+			</ListView.View>-->
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<Border BorderThickness="1" BorderBrush="DimGray" CornerRadius="3" Padding="10,5" >
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="20"/>
+								<RowDefinition Height="1"/>
+								<RowDefinition Height="20*"/>
+							</Grid.RowDefinitions>
+							<TextBlock Text="{Binding Autor}" Grid.RowSpan="2" Grid.Row="0" FontWeight="Bold" TextDecorations="{x:Null}"/>
+							<TextBlock Text="{Binding Content}" Grid.RowSpan="1" Grid.Row="2"></TextBlock>
+							<Separator Grid.Row="1" Opacity="0.6" BorderThickness="1" Background="#FF1D1D1D" ></Separator>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
 </UserControl>

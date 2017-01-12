@@ -135,9 +135,14 @@
     </ApplicationDefinition>
     <Compile Include="Converters\BoolToColorConverter.cs" />
     <Compile Include="Dependencies\DefaultDependencies.cs" />
+    <Compile Include="Events\ChatMessageIncoming.cs" />
     <Compile Include="Events\ServerConnectionStatusChanged.cs" />
+    <Compile Include="FakeViewModel\FakeChatBoxViewModel.cs" />
+    <Compile Include="ModelWrappers\BaseModelWrapper.cs" />
+    <Compile Include="ModelWrappers\ServerConnectionStatusWrapper.cs" />
     <Compile Include="Services\ActorService.cs" />
     <Compile Include="Services\IActorService.cs" />
+    <Compile Include="ViewModel\ChatBoxViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\StatusBarViewModel.cs" />

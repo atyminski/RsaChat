@@ -38,6 +38,11 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 								Nickname = reference.ClientName
 							}
 						});
+
+						if (reference.Message != null)
+						{
+							eventAggregator.GetEvent<ChatMessageIncoming>().Publish(reference.Message);
+						}
 					}
 				});
 			});

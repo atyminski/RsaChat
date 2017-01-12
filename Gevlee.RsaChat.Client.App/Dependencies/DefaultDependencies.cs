@@ -17,8 +17,9 @@ namespace Gevlee.RsaChat.Client.App.Dependencies
 			builder.RegisterType<MainViewModel>().As<IMainViewModel>();
 			builder.RegisterType<StatusBarViewModel>().As<IStatusBarViewModel>();
 			builder.RegisterType<MenuViewModel>().As<IMenuViewModel>();
+			builder.RegisterType<ChatBoxViewModel>().As<IChatBoxViewModel>();
 			builder.RegisterType<EventAggregator>().SingleInstance().As<IEventAggregator>();
-
+			builder.RegisterInstance(new ServerConnectionStatus()).SingleInstance();
 			builder.RegisterInstance(ActorSystem.Create("RsaChatClientSystem")).SingleInstance().As<ActorSystem>();
 			builder.RegisterInstance(new ServerConnection(ConfigurationManager.AppSettings["ServerUrl"])).SingleInstance();
 			builder.RegisterType<ClientCoreActor>();
