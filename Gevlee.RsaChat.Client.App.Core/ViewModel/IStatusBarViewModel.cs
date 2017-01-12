@@ -1,4 +1,4 @@
-﻿using Gevlee.RsaChat.Client.App.Core.Model;
+﻿using Gevlee.RsaChat.Client.Model;
 
 namespace Gevlee.RsaChat.Client.App.Core.ViewModel
 {

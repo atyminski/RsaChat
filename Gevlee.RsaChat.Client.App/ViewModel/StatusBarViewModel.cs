@@ -1,7 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
-using Gevlee.RsaChat.Client.App.Core.Model;
 using Gevlee.RsaChat.Client.App.Core.ViewModel;
 using Gevlee.RsaChat.Client.App.Events;
+using Gevlee.RsaChat.Client.Model;
 using Prism.Events;
 
 namespace Gevlee.RsaChat.Client.App.ViewModel

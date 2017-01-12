@@ -1,5 +1,7 @@
 ﻿using System;
 using Akka.Actor;
+using Akka.Event;
+using Gevlee.RsaChat.Common.Messages;
 
 namespace Gevlee.RsaChat.Common.Actors
 {
@@ -7,9 +9,14 @@ namespace Gevlee.RsaChat.Common.Actors
 	{
 		public ServerCoreActor()
 		{
-			Receive<string>(s =>
+			Receive<ConnectRequest>(request =>
 			{
-				Console.WriteLine("s");
+				Sender.Tell(new ConnectionReference()
+				{
+					Status = true,
+					ClientName = request.NicknameProposition
+				});
+				Context.GetLogger().Info($"Connected: {request.NicknameProposition}");
 			});
 		}
 

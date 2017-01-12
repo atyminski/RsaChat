@@ -39,6 +39,14 @@
       <HintPath>..\packages\Akka.1.1.2\lib\net45\Akka.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Akka.DI.AutoFac, Version=1.0.8.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Akka.DI.AutoFac.1.0.8\lib\net45\Akka.DI.AutoFac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Akka.DI.Core, Version=1.1.2.29, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Akka.DI.Core.1.1.2\lib\net45\Akka.DI.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Akka.Remote, Version=1.1.2.29, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Akka.Remote.1.1.2\lib\net45\Akka.Remote.dll</HintPath>
       <Private>True</Private>
@@ -96,7 +104,9 @@
       <HintPath>..\packages\System.Collections.Immutable.1.1.36\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -126,12 +136,17 @@
     <Compile Include="Converters\BoolToColorConverter.cs" />
     <Compile Include="Dependencies\DefaultDependencies.cs" />
     <Compile Include="Events\ServerConnectionStatusChanged.cs" />
+    <Compile Include="Services\ActorService.cs" />
+    <Compile Include="Services\IActorService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\StatusBarViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\ChatBoxView.xaml.cs">
       <DependentUpon>ChatBoxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
@@ -155,6 +170,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\ChatBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,9 +219,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gevlee.RsaChat.Client.Actors\Gevlee.RsaChat.Client.Actors.csproj">
+      <Project>{2CA1EA4C-8A02-4321-97D1-FFE74B840645}</Project>
+      <Name>Gevlee.RsaChat.Client.Actors</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gevlee.RsaChat.Client.App.Core\Gevlee.RsaChat.Client.App.Core.csproj">
       <Project>{C255C278-91AB-4132-BC8B-1600D3DC4906}</Project>
       <Name>Gevlee.RsaChat.Client.App.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gevlee.RsaChat.Client.Model\Gevlee.RsaChat.Client.Model.csproj">
+      <Project>{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}</Project>
+      <Name>Gevlee.RsaChat.Client.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gevlee.RsaChat.Common.Actors\Gevlee.RsaChat.Common.Actors.csproj">
       <Project>{43AB96C1-2B48-4A5B-AFF3-344D0619F90A}</Project>

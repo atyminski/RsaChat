@@ -1,4 +1,4 @@
-﻿namespace Gevlee.RsaChat.Client.App.Core.Model
+﻿namespace Gevlee.RsaChat.Client.Model
 {
 	public class ClientUser
 	{

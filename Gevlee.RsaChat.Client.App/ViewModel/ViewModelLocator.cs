@@ -1,3 +1,5 @@
+using Akka.Actor;
+using Akka.DI.AutoFac;
 using Autofac;
 using Autofac.Extras.CommonServiceLocator;
 using Gevlee.RsaChat.Client.App.Core.ViewModel;
@@ -23,6 +25,7 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 			builder.RegisterModule<DefaultDependencies>();
 			var container = builder.Build();
 
+			var autoFacDependencyResolver = new AutoFacDependencyResolver(container, container.Resolve<ActorSystem>());
 			ServiceLocator.SetLocatorProvider(() => new AutofacServiceLocator(container));
 		}
 

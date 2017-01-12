@@ -44,8 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\ClientUser.cs" />
-    <Compile Include="Model\ServerConnectionStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\IChatBoxViewModel.cs" />
     <Compile Include="ViewModel\IMainViewModel.cs" />
@@ -55,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gevlee.RsaChat.Client.Model\Gevlee.RsaChat.Client.Model.csproj">
+      <Project>{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}</Project>
+      <Name>Gevlee.RsaChat.Client.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

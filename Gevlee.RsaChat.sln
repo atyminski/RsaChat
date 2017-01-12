@@ -24,6 +24,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Common.Messa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Client.App.Core", "Gevlee.RsaChat.Client.App.Core\Gevlee.RsaChat.Client.App.Core.csproj", "{C255C278-91AB-4132-BC8B-1600D3DC4906}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Client.Actors", "Gevlee.RsaChat.Client.Actors\Gevlee.RsaChat.Client.Actors.csproj", "{2CA1EA4C-8A02-4321-97D1-FFE74B840645}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Client.Model", "Gevlee.RsaChat.Client.Model\Gevlee.RsaChat.Client.Model.csproj", "{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +54,14 @@ Global
 		{C255C278-91AB-4132-BC8B-1600D3DC4906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C255C278-91AB-4132-BC8B-1600D3DC4906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C255C278-91AB-4132-BC8B-1600D3DC4906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CA1EA4C-8A02-4321-97D1-FFE74B840645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA1EA4C-8A02-4321-97D1-FFE74B840645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA1EA4C-8A02-4321-97D1-FFE74B840645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA1EA4C-8A02-4321-97D1-FFE74B840645}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +72,7 @@ Global
 		{43AB96C1-2B48-4A5B-AFF3-344D0619F90A} = {1B05D79E-B31F-49DC-A796-4559A2A047FB}
 		{3EFCFD21-44F7-4794-A0F9-612E1EC68581} = {1B05D79E-B31F-49DC-A796-4559A2A047FB}
 		{C255C278-91AB-4132-BC8B-1600D3DC4906} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
+		{2CA1EA4C-8A02-4321-97D1-FFE74B840645} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
+		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
 	EndGlobalSection
 EndGlobal
