@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Client.Actor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Client.Model", "Gevlee.RsaChat.Client.Model\Gevlee.RsaChat.Client.Model.csproj", "{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Common.Cryptography", "Gevlee.RsaChat.Common.Cryptography\Gevlee.RsaChat.Common.Cryptography.csproj", "{B9D3D51A-5E3C-4E03-9A59-BFD5E70FC45D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Common.Cryptography.Tests", "Gevlee.RsaChat.Common.Cryptography.Tests\Gevlee.RsaChat.Common.Cryptography.Tests.csproj", "{26604121-6DDC-41AA-886D-442DF3C5C3E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9D3D51A-5E3C-4E03-9A59-BFD5E70FC45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D3D51A-5E3C-4E03-9A59-BFD5E70FC45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D3D51A-5E3C-4E03-9A59-BFD5E70FC45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D3D51A-5E3C-4E03-9A59-BFD5E70FC45D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26604121-6DDC-41AA-886D-442DF3C5C3E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26604121-6DDC-41AA-886D-442DF3C5C3E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26604121-6DDC-41AA-886D-442DF3C5C3E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26604121-6DDC-41AA-886D-442DF3C5C3E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,5 +87,7 @@ Global
 		{C255C278-91AB-4132-BC8B-1600D3DC4906} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
 		{2CA1EA4C-8A02-4321-97D1-FFE74B840645} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
 		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
+		{B9D3D51A-5E3C-4E03-9A59-BFD5E70FC45D} = {1B05D79E-B31F-49DC-A796-4559A2A047FB}
+		{26604121-6DDC-41AA-886D-442DF3C5C3E7} = {1B05D79E-B31F-49DC-A796-4559A2A047FB}
 	EndGlobalSection
 EndGlobal
