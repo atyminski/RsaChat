@@ -5,16 +5,16 @@ using System.Numerics;
 
 namespace Gevlee.RsaChat.Common.Cryptography
 {
-	public class RsaCryptoService
+	public class RsaCryptoService : IRsaCryptoService
 	{
-		public IEnumerable<char> Encode(IEnumerable<char> signs, RsaPublicKey key)
+		public IEnumerable<BigInteger> Encode(IEnumerable<char> signs, RsaPublicKey key)
 		{
-			return signs.Select(a => (int) a).Select(t => BigInteger.ModPow(t, key.E, key.N)).Select(c => (char)(int)c);
+			return signs.Select(a => (int)a).Select(t => BigInteger.ModPow(t, key.E, key.N));
 		}
 
-		public IEnumerable<char> Decode(IEnumerable<char> signs, RsaPrivateKey key)
+		public IEnumerable<char> Decode(IEnumerable<BigInteger> signs, RsaPrivateKey key)
 		{
-			return signs.Select(a => (int)a).Select(c => BigInteger.ModPow(c, key.D, key.N)).Select(t => (char)(int)t);
+			return signs.Select(c => BigInteger.ModPow(c, key.D, key.N)).Select(t => (char)t);
 		}
 	}
 }

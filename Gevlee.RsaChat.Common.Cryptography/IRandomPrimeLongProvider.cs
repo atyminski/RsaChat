@@ -1,6 +1,6 @@
 ﻿namespace Gevlee.RsaChat.Common.Cryptography
 {
-	public interface IRandomLongProvider
+	public interface IRandomPrimeLongProvider
 	{
 		long GetNext();
 	}
