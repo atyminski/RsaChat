@@ -13,14 +13,14 @@
 	<Grid>
 		<StatusBar>
 			<StatusBarItem>
-				<Grid Width="295" DataContext="{Binding ServerConnectionStatus}">
+				<Grid Width="295" DataContext="{Binding ApplicationState}">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="101*"/>
 						<ColumnDefinition Width="20*"/>
 						<ColumnDefinition Width="174*"/>
 					</Grid.ColumnDefinitions>
 					<TextBlock Text="Status połączenia:" Grid.ColumnSpan="1"></TextBlock>
-					<Ellipse Height="10" Width="10" Grid.Column="1" Fill="{Binding IsConnected, Converter={StaticResource BoolToColorConverter}}"></Ellipse>
+					<Ellipse Height="10" Width="10" Grid.Column="1" Fill="{Binding IsConnectedToServer, Converter={StaticResource BoolToColorConverter}}"></Ellipse>
 				</Grid>
 			</StatusBarItem>
 		</StatusBar>

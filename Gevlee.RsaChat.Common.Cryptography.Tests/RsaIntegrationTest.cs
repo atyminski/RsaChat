@@ -30,7 +30,7 @@ namespace Gevlee.RsaChat.Common.Cryptography.Tests
 			var encoded = cryptoService.Encode(target, keys.RsaPublicKey);
 			var decoded = cryptoService.Decode(encoded, keys.RsaPrivateKey);
 
-			Assert.Equal(target, new string(decoded.ToArray()));
+			Assert.Equal(target, decoded);
 		}
 	}
 }

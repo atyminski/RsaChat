@@ -1,20 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Numerics;
 
 namespace Gevlee.RsaChat.Common.Cryptography
 {
 	public class RsaCryptoService : IRsaCryptoService
 	{
-		public IEnumerable<BigInteger> Encode(IEnumerable<char> signs, RsaPublicKey key)
+		public byte[] Encode(string str, RsaPublicKey key)
 		{
-			return signs.Select(a => (int) a).Select(t => BigInteger.ModPow(t, key.E, key.N));
+			return str.Select(t => BigInteger.ModPow(t, key.E, key.N))
+				.SelectMany(a => BitConverter.GetBytes((long)a))
+				.ToArray();
 		}
 
-		public IEnumerable<char> Decode(IEnumerable<BigInteger> signs, RsaPrivateKey key)
+		public string Decode(byte[] signs, RsaPrivateKey key)
 		{
-			return signs.Select(c => BigInteger.ModPow(c, key.D, key.N)).Select(t => (char)(int)t);
+			return new string(signs.Select((s, i) => new {Value = s, Index = i})
+				.GroupBy(arg => arg.Index/8)
+				.Select(grouping => BitConverter.ToInt64(grouping.Select(a => a.Value)
+					.ToArray(), 0))
+				.Select(c => (char)BigInteger.ModPow(c, key.D, key.N))
+				.ToArray());
 		}
 	}
 }

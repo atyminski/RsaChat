@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using Gevlee.RsaChat.Client.App.Core.ViewModel;
 using Gevlee.RsaChat.Client.App.Events;
+using Gevlee.RsaChat.Client.App.ModelWrappers;
 using Gevlee.RsaChat.Client.Model;
 using Prism.Events;
 
@@ -8,30 +9,11 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 {
 	public class StatusBarViewModel : ViewModelBase, IStatusBarViewModel
 	{
-		private ServerConnectionStatus serverConnectionStatus;
-
-		public StatusBarViewModel(IEventAggregator eventAggregator)
+		public StatusBarViewModel(IApplicationState applicationState)
 		{
-			ServerConnectionStatus = new ServerConnectionStatus();
-			SubscribeEvents(eventAggregator);
+			ApplicationState = applicationState;
 		}
 
-		private void SubscribeEvents(IEventAggregator eventAggregator)
-		{
-			eventAggregator.GetEvent<ServerConnectionStatusChanged>().Subscribe(status =>
-			{
-				ServerConnectionStatus = status;
-			});
-		}
-
-		public ServerConnectionStatus ServerConnectionStatus
-		{
-			get { return serverConnectionStatus; }
-			set
-			{
-				serverConnectionStatus = value;
-				RaisePropertyChanged();
-			}
-		}
+		public IApplicationState ApplicationState { get; set; }
 	}
 }

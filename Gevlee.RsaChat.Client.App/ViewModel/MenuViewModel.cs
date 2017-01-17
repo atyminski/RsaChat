@@ -17,11 +17,19 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 	{
 		private readonly IEventAggregator eventAggregator;
 		private readonly IActorService actorService;
+		private readonly IApplicationState applicationState;
+		private readonly IKeysStorage keysStorage;
 
-		public MenuViewModel(IEventAggregator eventAggregator, IActorService actorService)
+		public MenuViewModel(
+			IEventAggregator eventAggregator, 
+			IActorService actorService, 
+			IApplicationState applicationState, 
+			IKeysStorage keysStorage)
 		{
 			this.eventAggregator = eventAggregator;
 			this.actorService = actorService;
+			this.applicationState = applicationState;
+			this.keysStorage = keysStorage;
 			ConnectToServerCommand = new DelegateCommand(() =>
 			{
 				var core = actorService.CreateActor<ClientCoreActor>("core");
@@ -30,14 +38,8 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 					NicknameProposition = "TestClient",
 					SuccessAction = (reference) =>
 					{
-						eventAggregator.GetEvent<ServerConnectionStatusChanged>().Publish(new ServerConnectionStatus()
-						{
-							IsConnected = reference.Status,
-							As = new ClientUser()
-							{
-								Nickname = reference.ClientName
-							}
-						});
+						applicationState.IsConnectedToServer = reference.Status;
+						applicationState.UserName = reference.ClientName;
 
 						if (reference.Message != null)
 						{

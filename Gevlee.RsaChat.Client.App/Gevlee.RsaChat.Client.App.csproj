@@ -55,8 +55,8 @@
       <HintPath>..\packages\Akka.Serialization.Wire.1.1.2.30-beta\lib\net45\Akka.Serialization.Wire.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Autofac, Version=4.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.4.2.0\lib\net45\Autofac.dll</HintPath>
+    <Reference Include="Autofac, Version=4.2.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.2.1\lib\net45\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Autofac.Extras.CommonServiceLocator, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
@@ -138,10 +138,11 @@
     <Compile Include="Events\ChatMessageIncoming.cs" />
     <Compile Include="Events\ServerConnectionStatusChanged.cs" />
     <Compile Include="FakeViewModel\FakeChatBoxViewModel.cs" />
-    <Compile Include="ModelWrappers\BaseModelWrapper.cs" />
-    <Compile Include="ModelWrappers\ServerConnectionStatusWrapper.cs" />
+    <Compile Include="ModelWrappers\ApplicationState.cs" />
     <Compile Include="Services\ActorService.cs" />
     <Compile Include="Services\IActorService.cs" />
+    <Compile Include="Services\IKeysStorage.cs" />
+    <Compile Include="Services\KeysStorage.cs" />
     <Compile Include="ViewModel\ChatBoxViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
@@ -239,6 +240,10 @@
     <ProjectReference Include="..\Gevlee.RsaChat.Common.Actors\Gevlee.RsaChat.Common.Actors.csproj">
       <Project>{43AB96C1-2B48-4A5B-AFF3-344D0619F90A}</Project>
       <Name>Gevlee.RsaChat.Common.Actors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gevlee.RsaChat.Common.Cryptography\Gevlee.RsaChat.Common.Cryptography.csproj">
+      <Project>{B9D3D51A-5E3C-4E03-9A59-BFD5E70FC45D}</Project>
+      <Name>Gevlee.RsaChat.Common.Cryptography</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gevlee.RsaChat.Common.Messages\Gevlee.RsaChat.Common.Messages.csproj">
       <Project>{3EFCFD21-44F7-4794-A0F9-612E1EC68581}</Project>

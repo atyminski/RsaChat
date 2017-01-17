@@ -5,7 +5,7 @@ namespace Gevlee.RsaChat.Common.Cryptography
 {
 	public interface IRsaCryptoService
 	{
-		IEnumerable<BigInteger> Encode(IEnumerable<char> signs, RsaPublicKey key);
-		IEnumerable<char> Decode(IEnumerable<BigInteger> signs, RsaPrivateKey key);
+		byte[] Encode(string str, RsaPublicKey key);
+		string Decode(byte[] signs, RsaPrivateKey key);
 	}
 }
