@@ -9,12 +9,12 @@ namespace Gevlee.RsaChat.Common.Cryptography
 	{
 		public IEnumerable<BigInteger> Encode(IEnumerable<char> signs, RsaPublicKey key)
 		{
-			return signs.Select(a => (int)a).Select(t => BigInteger.ModPow(t, key.E, key.N));
+			return signs.Select(a => (int) a).Select(t => BigInteger.ModPow(t, key.E, key.N));
 		}
 
 		public IEnumerable<char> Decode(IEnumerable<BigInteger> signs, RsaPrivateKey key)
 		{
-			return signs.Select(c => BigInteger.ModPow(c, key.D, key.N)).Select(t => (char)t);
+			return signs.Select(c => BigInteger.ModPow(c, key.D, key.N)).Select(t => (char)(int)t);
 		}
 	}
 }

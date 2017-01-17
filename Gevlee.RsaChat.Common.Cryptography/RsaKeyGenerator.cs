@@ -15,6 +15,10 @@ namespace Gevlee.RsaChat.Common.Cryptography
 		{
 			var p = randomPrimeLongProvider.GetNext();
 			var q = randomPrimeLongProvider.GetNext();
+			while (p == q)
+			{
+				q = randomPrimeLongProvider.GetNext();
+			}
 
 			var phi = (p - 1)*(q - 1);
 			var n = p * q;
