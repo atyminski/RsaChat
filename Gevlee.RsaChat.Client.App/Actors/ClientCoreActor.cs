@@ -71,7 +71,6 @@ namespace Gevlee.RsaChat.Client.App.Actors
 					Author = message.Autor,
 					MessageBytes = rsaCryptoService.Encode(message.Content, keysStorage.ServerKey)
 				};
-				//TODO: add encrypted content
 				serverHandler.Tell(encodedMessage);
 			});
 		}

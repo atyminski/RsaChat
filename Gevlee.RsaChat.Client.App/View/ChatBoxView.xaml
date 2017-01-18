@@ -9,7 +9,7 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
 	<Grid>
-		<ListView ItemsSource="{Binding ChatMessages}" HorizontalContentAlignment="Stretch">
+		<ListView ItemsSource="{Binding ChatMessages}" HorizontalContentAlignment="Stretch" >
 			<!--<ListView.View>
 				<GridView>
 					<GridViewColumn DisplayMemberBinding="{Binding TimeStamp}" Header="TimeStamp" />
