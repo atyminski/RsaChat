@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Xunit;
+﻿using Xunit;
 
 namespace Gevlee.RsaChat.Common.Cryptography.Tests
 {
@@ -9,8 +8,8 @@ namespace Gevlee.RsaChat.Common.Cryptography.Tests
 		public void Should_Encode_And_Decode_String()
 		{
 			var service = new RsaCryptoService();
-			var privateKey = new RsaPrivateKey(103,143);
-			var publicKey = new RsaPublicKey(7,143);
+			var privateKey = new RsaPrivateKey(103, 143);
+			var publicKey = new RsaPublicKey(7, 143);
 
 			var toEncode = "Hello World!";
 			var encoded = service.Encode(toEncode, publicKey);

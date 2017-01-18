@@ -1,6 +1,5 @@
 ﻿using System;
 using Akka.Actor;
-using Akka.DI;
 using Akka.DI.Core;
 
 namespace Gevlee.RsaChat.Client.App.Services

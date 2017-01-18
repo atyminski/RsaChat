@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Net.Mime;
 using System.Windows;
 using GalaSoft.MvvmLight;
 using Gevlee.RsaChat.Client.App.Core.ViewModel;
@@ -12,20 +11,17 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 {
 	public class ChatBoxViewModel : ViewModelBase, IChatBoxViewModel
 	{
-		public ICollection<ChatMessage> ChatMessages { get; }
-
 		public ChatBoxViewModel(IEventAggregator eventAggregator)
 		{
 			ChatMessages = new ObservableCollection<ChatMessage>();
 			eventAggregator.GetEvent<ChatMessageIncoming>().Subscribe(AddChatMessage);
 		}
 
+		public ICollection<ChatMessage> ChatMessages { get; }
+
 		private void AddChatMessage(ChatMessage obj)
 		{
-			Application.Current.Dispatcher.Invoke(() =>
-			{
-				ChatMessages.Add(obj);
-			});
+			Application.Current.Dispatcher.Invoke(() => { ChatMessages.Add(obj); });
 		}
 	}
 }

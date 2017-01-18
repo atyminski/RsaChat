@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mail;
 using System.Numerics;
-using System.Text;
 
 namespace Gevlee.RsaChat.Common.Cryptography
 {
@@ -27,11 +24,14 @@ namespace Gevlee.RsaChat.Common.Cryptography
 		{
 			try
 			{
-				outStr = "BASE64: " + Convert.ToBase64String(GetBytesFromString(new string(GetLongArrayFromBytesArray(endodedContent).Select(a => (char)a).ToArray())));
+				outStr = "BASE64: " +
+				         Convert.ToBase64String(
+					         GetBytesFromString(new string(GetLongArrayFromBytesArray(endodedContent).Select(a => (char) a).ToArray())));
 			}
 			catch (Exception)
 			{
-				outStr = "ONLY NUMBERS: " + string.Join("", GetLongArrayFromBytesArray(endodedContent).Select(a => a.ToString()).ToArray());
+				outStr = "ONLY NUMBERS: " +
+				         string.Join("", GetLongArrayFromBytesArray(endodedContent).Select(a => a.ToString()).ToArray());
 			}
 		}
 
@@ -45,8 +45,8 @@ namespace Gevlee.RsaChat.Common.Cryptography
 
 		private byte[] GetBytesFromString(string str)
 		{
-			byte[] bytes = new byte[str.Length * sizeof(char)];
-			System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+			var bytes = new byte[str.Length*sizeof(char)];
+			Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
 			return bytes;
 		}
 	}

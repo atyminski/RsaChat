@@ -19,7 +19,7 @@ namespace Gevlee.RsaChat.Server.Core.Actors
 			{
 				handleReference = reference;
 				Context.GetLogger().Info($"Handle reference for : {handleReference.ClientName}");
-				handleReference.ClientRef.Tell(new EncodedChatMessage()
+				handleReference.ClientRef.Tell(new EncodedChatMessage
 				{
 					MessageBytes = rsaCryptoService.Encode("Witaj! Zostałeś podłączony do serwera", handleReference.ClientPublicKey),
 					Author = "Server"
@@ -27,27 +27,26 @@ namespace Gevlee.RsaChat.Server.Core.Actors
 				Context.GetLogger().Info($"Welcome message sent to : {handleReference.ClientName}");
 			});
 
-			Receive<EncodedChatMessage>((message =>
+			Receive<EncodedChatMessage>(message =>
 			{
 				Context.GetLogger().Info($"New message from {handleReference.ClientName}");
 				TryLogEncodedMessage(message);
-				Context.ActorSelection("../handlerof*").Tell(new ShoutcastMessage()
+				Context.ActorSelection("../handlerof*").Tell(new ShoutcastMessage
 				{
 					Author = message.Author,
 					Content = this.rsaCryptoService.Decode(message.MessageBytes, handleReference.ServeRsaPrivateKey)
 				});
 				Context.GetLogger().Info($"Message from {handleReference.ClientName} was shoutcasted to other clients");
-			}));
+			});
 
-			Receive<ShoutcastMessage>((message =>
+			Receive<ShoutcastMessage>(message =>
 			{
-				handleReference.ClientRef.Tell(new EncodedChatMessage()
+				handleReference.ClientRef.Tell(new EncodedChatMessage
 				{
 					Author = message.Author,
 					MessageBytes = rsaCryptoService.Encode(message.Content, handleReference.ClientPublicKey)
 				});
-
-			}));
+			});
 		}
 
 		private void TryLogEncodedMessage(EncodedChatMessage msg)
@@ -55,9 +54,7 @@ namespace Gevlee.RsaChat.Server.Core.Actors
 			string message = null;
 			rsaCryptoService.TryGetEncodedSigns(msg.MessageBytes, out message);
 			if (!string.IsNullOrEmpty(message))
-			{
 				Context.GetLogger().Info($"\nAuthor:{msg.Author}\nEncoded msg: {message}");
-			}
 		}
 	}
 }

@@ -10,7 +10,7 @@ namespace Gevlee.RsaChat.Client.App.Converters
 		public object Convert(object value, Type targetType, object parameter,
 			CultureInfo culture)
 		{
-			bool b = (bool)value;
+			var b = (bool) value;
 			return b ? Brushes.Green : Brushes.Red;
 		}
 

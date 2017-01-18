@@ -4,25 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gevlee.RsaChat.Client.App"
-		xmlns:views="clr-namespace:Gevlee.RsaChat.Client.App.View"
+        xmlns:views="clr-namespace:Gevlee.RsaChat.Client.App.View"
         mc:Ignorable="d"
         Title="Rsa Chat Client" Height="600" Width="800"
-		DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="20"/>
-			<RowDefinition Height="100*"/>
-			<RowDefinition Height="25"/>
+			<RowDefinition Height="20" />
+			<RowDefinition Height="100*" />
+			<RowDefinition Height="25" />
 		</Grid.RowDefinitions>
-		<views:MenuView Grid.Column="0" Grid.Row="0" DataContext="{Binding MenuViewModel}"></views:MenuView>
+		<views:MenuView Grid.Column="0" Grid.Row="0" DataContext="{Binding MenuViewModel}" />
 		<Grid Grid.Row="1" IsEnabled="{Binding ApplicationState.IsConnectedToServer}">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="243*"/>
-				<RowDefinition Height="30*"/>
+				<RowDefinition Height="243*" />
+				<RowDefinition Height="30*" />
 			</Grid.RowDefinitions>
-			<views:ChatBoxView Grid.Column="0" Grid.Row="0" DataContext="{Binding ChatBoxViewModel}"></views:ChatBoxView>
-			<views:MessageTypingView Grid.Column="0" Grid.Row="1" DataContext="{Binding MessageTypingViewModel}"></views:MessageTypingView>
+			<views:ChatBoxView Grid.Column="0" Grid.Row="0" DataContext="{Binding ChatBoxViewModel}" />
+			<views:MessageTypingView Grid.Column="0" Grid.Row="1" DataContext="{Binding MessageTypingViewModel}" />
 		</Grid>
-		<views:StatusBarView Grid.Column="0" Grid.Row="2" DataContext="{Binding StatusBarViewModel}"></views:StatusBarView>
+		<views:StatusBarView Grid.Column="0" Grid.Row="2" DataContext="{Binding StatusBarViewModel}" />
 	</Grid>
 </Window>

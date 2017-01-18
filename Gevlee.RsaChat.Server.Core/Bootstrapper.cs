@@ -1,5 +1,4 @@
-﻿using System;
-using Akka.Actor;
+﻿using Akka.Actor;
 using Akka.DI.AutoFac;
 using Akka.DI.Core;
 using Autofac;
@@ -8,8 +7,6 @@ using Gevlee.RsaChat.Server.Core.Actors;
 using NLog;
 using NLog.Conditions;
 using NLog.Config;
-using NLog.Filters;
-using NLog.Internal;
 using NLog.Targets;
 
 namespace Gevlee.RsaChat.Server.Core
@@ -31,15 +28,19 @@ namespace Gevlee.RsaChat.Server.Core
 		private void ConfigureLogger()
 		{
 			var config = new LoggingConfiguration();
-			config.AddTarget(new FileTarget()
+			config.AddTarget(new FileTarget
 			{
 				FileName = "server.log",
 				Name = "file"
 			});
-			config.AddTarget(new ColoredConsoleTarget()
+			config.AddTarget(new ColoredConsoleTarget
 			{
 				Name = "console",
-				RowHighlightingRules = { new ConsoleRowHighlightingRule(ConditionParser.ParseExpression("level == LogLevel.Info"), ConsoleOutputColor.Green, ConsoleOutputColor.NoChange)}
+				RowHighlightingRules =
+				{
+					new ConsoleRowHighlightingRule(ConditionParser.ParseExpression("level == LogLevel.Info"), ConsoleOutputColor.Green,
+						ConsoleOutputColor.NoChange)
+				}
 			});
 
 			config.AddRule(LogLevel.Info, LogLevel.Warn, "console", "*Akka*");

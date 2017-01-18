@@ -1,5 +1,4 @@
-﻿using System;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using Gevlee.RsaChat.Client.App.Core.ViewModel;
 using Gevlee.RsaChat.Client.App.Events;
 using Gevlee.RsaChat.Client.Model;
@@ -10,22 +9,9 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 {
 	public class MessageTypingViewModel : ViewModelBase, IMessageTypingViewModel
 	{
-		private readonly IEventAggregator eventAggregator;
 		private readonly IApplicationState applicationState;
+		private readonly IEventAggregator eventAggregator;
 		private string messageText;
-
-		public string MessageText
-		{
-			get { return messageText; }
-			set
-			{
-				messageText = value; 
-				RaisePropertyChanged();
-				SendCommand.RaiseCanExecuteChanged();
-			}
-		}
-
-		public DelegateCommand SendCommand { get; private set; }
 
 		public MessageTypingViewModel(IEventAggregator eventAggregator, IApplicationState applicationState)
 		{
@@ -34,19 +20,31 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 			ConfigureCommands();
 		}
 
+		public string MessageText
+		{
+			get { return messageText; }
+			set
+			{
+				messageText = value;
+				RaisePropertyChanged();
+				SendCommand.RaiseCanExecuteChanged();
+			}
+		}
+
+		public DelegateCommand SendCommand { get; private set; }
+
 		private void ConfigureCommands()
 		{
 			SendCommand = new DelegateCommand(() =>
 			{
-				eventAggregator.GetEvent<ChatMessageOutcome>().Publish(new ChatMessage()
+				eventAggregator.GetEvent<ChatMessageOutcome>().Publish(new ChatMessage
 				{
 					Autor = applicationState.UserName,
 					Content = MessageText,
-					IsEncrypted = true,
+					IsEncrypted = true
 				});
 
-				MessageText = String.Empty;
-
+				MessageText = string.Empty;
 			}, () => !string.IsNullOrEmpty(MessageText));
 		}
 	}

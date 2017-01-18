@@ -10,7 +10,7 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 		private readonly IEventAggregator eventAggregator;
 
 		public MainViewModel(
-			IEventAggregator eventAggregator, 
+			IEventAggregator eventAggregator,
 			IMenuViewModel menuViewModel,
 			IStatusBarViewModel statusBarViewModel,
 			IChatBoxViewModel chatBoxViewModel,

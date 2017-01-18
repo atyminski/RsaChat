@@ -8,17 +8,20 @@
         Title="Logowanie" Height="134.892" Width="420.863">
 	<Grid>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="113*"/>
-			<ColumnDefinition Width="93*"/>
-			<ColumnDefinition Width="207*"/>
+			<ColumnDefinition Width="113*" />
+			<ColumnDefinition Width="93*" />
+			<ColumnDefinition Width="207*" />
 		</Grid.ColumnDefinitions>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="91*"/>
-			<RowDefinition Height="40"/>
+			<RowDefinition Height="91*" />
+			<RowDefinition Height="40" />
 		</Grid.RowDefinitions>
-		<TextBlock Text="Łączenie..." IsEnabled="{Binding ConnectionPending}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-		<TextBlock Text="Nick:" IsEnabled="{Binding ConnectionPending}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0"></TextBlock>
-		<TextBox Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="1" VerticalAlignment="Center"/>
-		<Button Content="Zaloguj" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5"></Button>
+		<TextBlock Text="Łączenie..." IsEnabled="{Binding ConnectionPending}" Grid.Row="1" Grid.Column="1"
+		           HorizontalAlignment="Center" VerticalAlignment="Center" />
+		<TextBlock Text="Nick:" IsEnabled="{Binding ConnectionPending}" Grid.Row="0" Grid.Column="0"
+		           HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" />
+		<TextBox Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="1" VerticalAlignment="Center" />
+		<Button Content="Zaloguj" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+		        Padding="5" />
 	</Grid>
 </Window>

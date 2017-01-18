@@ -1,20 +1,17 @@
-﻿using System;
-using Akka.Actor;
+﻿using Akka.Actor;
 using Akka.DI.Core;
 using Akka.Event;
-using Gevlee.RsaChat.Client.Model;
 using Gevlee.RsaChat.Common.Cryptography;
 using Gevlee.RsaChat.Common.Messages;
 using Gevlee.RsaChat.Server.Core.Messages;
 using Gevlee.RsaChat.Server.Core.Services;
-using NLog;
 
 namespace Gevlee.RsaChat.Server.Core.Actors
 {
 	public class ServerCoreActor : ReceiveActor
 	{
 		private readonly IClientNameProvider clientNameProvider;
-		private RsaKeysPair keys;
+		private readonly RsaKeysPair keys;
 
 		public ServerCoreActor(IRsaKeyGenerator rsaKeyGenerator, IClientNameProvider clientNameProvider)
 		{
@@ -28,7 +25,7 @@ namespace Gevlee.RsaChat.Server.Core.Actors
 
 				var handler = Context.ActorOf(Context.DI().Props<ClientHandler>(), $"handlerof{clientName}");
 
-				Sender.Tell(new ConnectionReference()
+				Sender.Tell(new ConnectionReference
 				{
 					Status = true,
 					HandlerRef = handler,
@@ -36,7 +33,7 @@ namespace Gevlee.RsaChat.Server.Core.Actors
 					ServerPublicKey = keys.RsaPublicKey
 				});
 
-				handler.Tell(new HandleReference()
+				handler.Tell(new HandleReference
 				{
 					ClientName = clientName,
 					ServeRsaPrivateKey = keys.RsaPrivateKey,

@@ -3,9 +3,9 @@ using Gevlee.RsaChat.Server.Core;
 
 namespace Gevlee.RsaChat.Server.Console
 {
-	class Program
+	internal class Program
 	{
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
 			System.Console.OutputEncoding = Encoding.ASCII;
 			var bootstrapper = new Bootstrapper();

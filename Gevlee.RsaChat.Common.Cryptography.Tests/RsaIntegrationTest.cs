@@ -1,13 +1,12 @@
-﻿using System.Linq;
-using Autofac;
+﻿using Autofac;
 using Xunit;
 
 namespace Gevlee.RsaChat.Common.Cryptography.Tests
 {
 	public class RsaIntegrationTest
 	{
-		private IRsaKeyGenerator keyGenerator;
-		private IRsaCryptoService cryptoService;
+		private readonly IRsaCryptoService cryptoService;
+		private readonly IRsaKeyGenerator keyGenerator;
 
 		public RsaIntegrationTest()
 		{

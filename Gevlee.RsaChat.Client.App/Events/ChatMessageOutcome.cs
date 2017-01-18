@@ -5,6 +5,5 @@ namespace Gevlee.RsaChat.Client.App.Events
 {
 	public class ChatMessageOutcome : PubSubEvent<ChatMessage>
 	{
-		
 	}
 }

@@ -5,8 +5,6 @@ namespace Gevlee.RsaChat.Common.Cryptography.Tests
 {
 	public class RsaKeyGeneratorTest
 	{
-		private IRandomPrimeLongProvider randomPrimeLongProvider;
-
 		public RsaKeyGeneratorTest()
 		{
 			var mock = new Mock<IRandomPrimeLongProvider>();
@@ -16,6 +14,8 @@ namespace Gevlee.RsaChat.Common.Cryptography.Tests
 
 			randomPrimeLongProvider = mock.Object;
 		}
+
+		private readonly IRandomPrimeLongProvider randomPrimeLongProvider;
 
 		[Fact]
 		public void Test()

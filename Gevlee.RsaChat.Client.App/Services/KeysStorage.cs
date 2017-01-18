@@ -11,6 +11,7 @@ namespace Gevlee.RsaChat.Client.App.Services
 			ClientPrivateKey = pair.RsaPrivateKey;
 			ClientPublicKey = pair.RsaPublicKey;
 		}
+
 		public RsaPrivateKey ClientPrivateKey { get; }
 
 		public RsaPublicKey ClientPublicKey { get; }

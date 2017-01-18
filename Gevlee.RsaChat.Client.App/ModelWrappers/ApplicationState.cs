@@ -5,15 +5,15 @@ namespace Gevlee.RsaChat.Client.App.ModelWrappers
 {
 	public class ApplicationState : ObservableObject, IApplicationState
 	{
-		private string userName;
 		private bool isConnectedToServer;
+		private string userName;
 
 		public bool IsConnectedToServer
 		{
 			get { return isConnectedToServer; }
 			set
 			{
-				isConnectedToServer = value; 
+				isConnectedToServer = value;
 				RaisePropertyChanged();
 			}
 		}
@@ -23,7 +23,7 @@ namespace Gevlee.RsaChat.Client.App.ModelWrappers
 			get { return userName; }
 			set
 			{
-				userName = value; 
+				userName = value;
 				RaisePropertyChanged();
 			}
 		}
