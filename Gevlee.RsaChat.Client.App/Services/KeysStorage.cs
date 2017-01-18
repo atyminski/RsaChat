@@ -1,4 +1,5 @@
-﻿using Gevlee.RsaChat.Common.Cryptography;
+﻿using Gevlee.RsaChat.Client.Model;
+using Gevlee.RsaChat.Common.Cryptography;
 
 namespace Gevlee.RsaChat.Client.App.Services
 {

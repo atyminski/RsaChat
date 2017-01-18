@@ -16,12 +16,19 @@ namespace Gevlee.RsaChat.Client.App.Services
 
 		public IActorRef GetActor(string name)
 		{
-			return system.ActorSelection(name.Contains("/") ? name : $"../{name}").ResolveOne(TimeSpan.MaxValue).Result;
+			return system.ActorSelection(name.Contains("/") ? name : $"../{name}").ResolveOne(TimeSpan.FromSeconds(5)).Result;
 		}
 
 		public IActorRef CreateActor<T>(string name) where T : ActorBase
 		{
-			return system.ActorOf(system.DI().Props<T>(), name);
+			try
+			{
+				return system.ActorOf(system.DI().Props<T>(), name);
+			}
+			catch (InvalidActorNameException)
+			{
+				return GetActor(name);
+			}
 		}
 	}
 }

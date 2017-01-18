@@ -19,19 +19,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{1B05D7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Server.Console", "Gevlee.RsaChat.Server.Console\Gevlee.RsaChat.Server.Console.csproj", "{1219CAC1-D8D9-481F-9DD3-DE115E91D86B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Common.Actors", "Gevlee.RsaChat.Common.Actors\Gevlee.RsaChat.Common.Actors.csproj", "{43AB96C1-2B48-4A5B-AFF3-344D0619F90A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Common.Messages", "Gevlee.RsaChat.Common.Messages\Gevlee.RsaChat.Common.Messages.csproj", "{3EFCFD21-44F7-4794-A0F9-612E1EC68581}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Client.App.Core", "Gevlee.RsaChat.Client.App.Core\Gevlee.RsaChat.Client.App.Core.csproj", "{C255C278-91AB-4132-BC8B-1600D3DC4906}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Client.Actors", "Gevlee.RsaChat.Client.Actors\Gevlee.RsaChat.Client.Actors.csproj", "{2CA1EA4C-8A02-4321-97D1-FFE74B840645}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Client.Model", "Gevlee.RsaChat.Client.Model\Gevlee.RsaChat.Client.Model.csproj", "{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Common.Cryptography", "Gevlee.RsaChat.Common.Cryptography\Gevlee.RsaChat.Common.Cryptography.csproj", "{B9D3D51A-5E3C-4E03-9A59-BFD5E70FC45D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Common.Cryptography.Tests", "Gevlee.RsaChat.Common.Cryptography.Tests\Gevlee.RsaChat.Common.Cryptography.Tests.csproj", "{26604121-6DDC-41AA-886D-442DF3C5C3E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gevlee.RsaChat.Server.Core", "Gevlee.RsaChat.Server.Core\Gevlee.RsaChat.Server.Core.csproj", "{C96AD1D7-1171-4BB0-BB57-0702EDA71933}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +45,6 @@ Global
 		{1219CAC1-D8D9-481F-9DD3-DE115E91D86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1219CAC1-D8D9-481F-9DD3-DE115E91D86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1219CAC1-D8D9-481F-9DD3-DE115E91D86B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{43AB96C1-2B48-4A5B-AFF3-344D0619F90A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43AB96C1-2B48-4A5B-AFF3-344D0619F90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43AB96C1-2B48-4A5B-AFF3-344D0619F90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43AB96C1-2B48-4A5B-AFF3-344D0619F90A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3EFCFD21-44F7-4794-A0F9-612E1EC68581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3EFCFD21-44F7-4794-A0F9-612E1EC68581}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EFCFD21-44F7-4794-A0F9-612E1EC68581}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,10 +53,6 @@ Global
 		{C255C278-91AB-4132-BC8B-1600D3DC4906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C255C278-91AB-4132-BC8B-1600D3DC4906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C255C278-91AB-4132-BC8B-1600D3DC4906}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2CA1EA4C-8A02-4321-97D1-FFE74B840645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2CA1EA4C-8A02-4321-97D1-FFE74B840645}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2CA1EA4C-8A02-4321-97D1-FFE74B840645}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2CA1EA4C-8A02-4321-97D1-FFE74B840645}.Release|Any CPU.Build.0 = Release|Any CPU
 		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,6 +65,10 @@ Global
 		{26604121-6DDC-41AA-886D-442DF3C5C3E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26604121-6DDC-41AA-886D-442DF3C5C3E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26604121-6DDC-41AA-886D-442DF3C5C3E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96AD1D7-1171-4BB0-BB57-0702EDA71933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96AD1D7-1171-4BB0-BB57-0702EDA71933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96AD1D7-1171-4BB0-BB57-0702EDA71933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96AD1D7-1171-4BB0-BB57-0702EDA71933}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,12 +76,11 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B8016495-AA81-45F0-995C-5462EF49496F} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
 		{1219CAC1-D8D9-481F-9DD3-DE115E91D86B} = {3C9EB8FE-7DAD-4E83-94FE-FF50449D3842}
-		{43AB96C1-2B48-4A5B-AFF3-344D0619F90A} = {1B05D79E-B31F-49DC-A796-4559A2A047FB}
 		{3EFCFD21-44F7-4794-A0F9-612E1EC68581} = {1B05D79E-B31F-49DC-A796-4559A2A047FB}
 		{C255C278-91AB-4132-BC8B-1600D3DC4906} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
-		{2CA1EA4C-8A02-4321-97D1-FFE74B840645} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
 		{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46} = {C11CA808-F868-42B8-BAE3-80187CC0AFD1}
 		{B9D3D51A-5E3C-4E03-9A59-BFD5E70FC45D} = {1B05D79E-B31F-49DC-A796-4559A2A047FB}
 		{26604121-6DDC-41AA-886D-442DF3C5C3E7} = {1B05D79E-B31F-49DC-A796-4559A2A047FB}
+		{C96AD1D7-1171-4BB0-BB57-0702EDA71933} = {3C9EB8FE-7DAD-4E83-94FE-FF50449D3842}
 	EndGlobalSection
 EndGlobal

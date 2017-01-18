@@ -1,12 +1,10 @@
 ﻿using Akka.Actor;
 using GalaSoft.MvvmLight;
-using Gevlee.RsaChat.Client.Actors;
+using Gevlee.RsaChat.Client.App.Actors;
 using Gevlee.RsaChat.Client.App.Core.ViewModel;
 using Gevlee.RsaChat.Client.App.Events;
 using Gevlee.RsaChat.Client.App.Services;
 using Gevlee.RsaChat.Client.Model;
-using Gevlee.RsaChat.Common.Actors;
-using Gevlee.RsaChat.Common.Messages;
 using Prism.Commands;
 using Prism.Events;
 using ServerConnection = Gevlee.RsaChat.Common.Messages.ServerConnection;
@@ -17,7 +15,7 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 	{
 		private readonly IEventAggregator eventAggregator;
 		private readonly IActorService actorService;
-		private readonly IApplicationState applicationState;
+		public IApplicationState ApplicationState { get; }
 		private readonly IKeysStorage keysStorage;
 
 		public MenuViewModel(
@@ -28,25 +26,13 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 		{
 			this.eventAggregator = eventAggregator;
 			this.actorService = actorService;
-			this.applicationState = applicationState;
+			this.ApplicationState = applicationState;
 			this.keysStorage = keysStorage;
+
 			ConnectToServerCommand = new DelegateCommand(() =>
 			{
 				var core = actorService.CreateActor<ClientCoreActor>("core");
-				core.Tell(new ServerConnection()
-				{
-					NicknameProposition = "TestClient",
-					SuccessAction = (reference) =>
-					{
-						applicationState.IsConnectedToServer = reference.Status;
-						applicationState.UserName = reference.ClientName;
-
-						if (reference.Message != null)
-						{
-							eventAggregator.GetEvent<ChatMessageIncoming>().Publish(reference.Message);
-						}
-					}
-				});
+				core.Tell(new ServerConnection());
 			});
 		}
 

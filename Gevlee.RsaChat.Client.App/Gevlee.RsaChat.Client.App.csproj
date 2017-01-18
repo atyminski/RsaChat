@@ -133,19 +133,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Actors\ClientCoreActor.cs" />
     <Compile Include="Converters\BoolToColorConverter.cs" />
+    <Compile Include="Converters\BoolToVisibility.cs" />
+    <Compile Include="Converters\InverseBoolConverter.cs" />
     <Compile Include="Dependencies\DefaultDependencies.cs" />
     <Compile Include="Events\ChatMessageIncoming.cs" />
+    <Compile Include="Events\ChatMessageOutcome.cs" />
     <Compile Include="Events\ServerConnectionStatusChanged.cs" />
     <Compile Include="FakeViewModel\FakeChatBoxViewModel.cs" />
     <Compile Include="ModelWrappers\ApplicationState.cs" />
     <Compile Include="Services\ActorService.cs" />
     <Compile Include="Services\IActorService.cs" />
-    <Compile Include="Services\IKeysStorage.cs" />
     <Compile Include="Services\KeysStorage.cs" />
     <Compile Include="ViewModel\ChatBoxViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModel\MessageTypingViewModel.cs" />
     <Compile Include="ViewModel\StatusBarViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\ChatBoxView.xaml.cs">
@@ -225,10 +229,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gevlee.RsaChat.Client.Actors\Gevlee.RsaChat.Client.Actors.csproj">
-      <Project>{2CA1EA4C-8A02-4321-97D1-FFE74B840645}</Project>
-      <Name>Gevlee.RsaChat.Client.Actors</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Gevlee.RsaChat.Client.App.Core\Gevlee.RsaChat.Client.App.Core.csproj">
       <Project>{C255C278-91AB-4132-BC8B-1600D3DC4906}</Project>
       <Name>Gevlee.RsaChat.Client.App.Core</Name>
@@ -236,10 +236,6 @@
     <ProjectReference Include="..\Gevlee.RsaChat.Client.Model\Gevlee.RsaChat.Client.Model.csproj">
       <Project>{80FC0F7A-ED32-44DF-8BC9-CAC5BE175E46}</Project>
       <Name>Gevlee.RsaChat.Client.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Gevlee.RsaChat.Common.Actors\Gevlee.RsaChat.Common.Actors.csproj">
-      <Project>{43AB96C1-2B48-4A5B-AFF3-344D0619F90A}</Project>
-      <Name>Gevlee.RsaChat.Common.Actors</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gevlee.RsaChat.Common.Cryptography\Gevlee.RsaChat.Common.Cryptography.csproj">
       <Project>{B9D3D51A-5E3C-4E03-9A59-BFD5E70FC45D}</Project>

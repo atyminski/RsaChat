@@ -7,20 +7,20 @@
 			 xmlns:converters="clr-namespace:Gevlee.RsaChat.Client.App.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-	<UserControl.Resources>
-		<converters:BoolToColorConverter x:Key="BoolToColorConverter"></converters:BoolToColorConverter>
-	</UserControl.Resources>
 	<Grid>
 		<StatusBar>
 			<StatusBarItem>
 				<Grid Width="295" DataContext="{Binding ApplicationState}">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="101*"/>
-						<ColumnDefinition Width="20*"/>
-						<ColumnDefinition Width="174*"/>
+						<ColumnDefinition Width="20"/>
+						<ColumnDefinition Width="30"/>
+						<ColumnDefinition Width="142*"/>
 					</Grid.ColumnDefinitions>
 					<TextBlock Text="Status połączenia:" Grid.ColumnSpan="1"></TextBlock>
-					<Ellipse Height="10" Width="10" Grid.Column="1" Fill="{Binding IsConnectedToServer, Converter={StaticResource BoolToColorConverter}}"></Ellipse>
+					<Ellipse Height="10" Width="10" Grid.Column="1" Fill="{Binding IsConnectedToServer, Converter={StaticResource BoolToColorConverter}}" Margin="5,3"></Ellipse>
+					<TextBlock  Grid.Column="2"  Text="jako: " Visibility="{Binding IsConnectedToServer, Converter={StaticResource BoolToVisibility}}" Grid.ColumnSpan="2"></TextBlock>
+					<TextBlock  Grid.Column="3"  Text="{Binding UserName}" Visibility="{Binding IsConnectedToServer, Converter={StaticResource BoolToVisibility}}" Grid.ColumnSpan="2" FontWeight="Bold"></TextBlock>
 				</Grid>
 			</StatusBarItem>
 		</StatusBar>

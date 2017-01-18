@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Akka.Actor;
-using Gevlee.RsaChat.Common.Actors;
+﻿using Gevlee.RsaChat.Server.Core;
 
 namespace Gevlee.RsaChat.Server.Console
 {
@@ -12,8 +6,8 @@ namespace Gevlee.RsaChat.Server.Console
 	{
 		static void Main(string[] args)
 		{
-			var system = ActorSystem.Create("RsaChatSystem");
-			system.ActorOf(Props.Create<ServerCoreActor>(), "core");
+			var bootstrapper = new Bootstrapper();
+			bootstrapper.Run();
 			System.Console.ReadKey();
 		}
 	}

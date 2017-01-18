@@ -4,15 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Gevlee.RsaChat.Client.App.View"
+			 xmlns:converters="clr-namespace:Gevlee.RsaChat.Client.App.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+	<Grid>
 		<Menu x:Name="menu">
 			<MenuItem Header="Aplikacja">
 				<MenuItem Header="Wyjście" Command="{Binding ExitCommand}"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Serwer">
-				<MenuItem Header="Połącz" IsEnabled="{Binding CanConnectServer}" Command="{Binding ConnectToServerCommand}"></MenuItem>
+				<MenuItem Header="Połącz" IsEnabled="{Binding ApplicationState.IsConnectedToServer, Converter={StaticResource InverseBoolConverter}}" Command="{Binding ConnectToServerCommand}"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="O programie">
 			</MenuItem>

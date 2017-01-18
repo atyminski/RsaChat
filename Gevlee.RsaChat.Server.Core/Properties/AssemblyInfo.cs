@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Gevlee.RsaChat.Client.Actors")]
+[assembly: AssemblyTitle("Gevlee.RsaChat.Server.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Gevlee.RsaChat.Client.Actors")]
+[assembly: AssemblyProduct("Gevlee.RsaChat.Server.Core")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2ca1ea4c-8a02-4321-97d1-ffe74b840645")]
+[assembly: Guid("c96ad1d7-1171-4bb0-bb57-0702eda71933")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,6 +1,6 @@
 ﻿using Gevlee.RsaChat.Common.Cryptography;
 
-namespace Gevlee.RsaChat.Client.App.Services
+namespace Gevlee.RsaChat.Client.Model
 {
 	public interface IKeysStorage
 	{

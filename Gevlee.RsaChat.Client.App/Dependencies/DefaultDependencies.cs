@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using Akka.Actor;
 using Autofac;
-using Gevlee.RsaChat.Client.Actors;
+using Gevlee.RsaChat.Client.App.Actors;
 using Gevlee.RsaChat.Client.App.Core.ViewModel;
 using Gevlee.RsaChat.Client.App.ModelWrappers;
 using Gevlee.RsaChat.Client.App.Services;
@@ -20,6 +20,8 @@ namespace Gevlee.RsaChat.Client.App.Dependencies
 			builder.RegisterType<StatusBarViewModel>().As<IStatusBarViewModel>();
 			builder.RegisterType<MenuViewModel>().As<IMenuViewModel>();
 			builder.RegisterType<ChatBoxViewModel>().As<IChatBoxViewModel>();
+			builder.RegisterType<MessageTypingViewModel>().As<IMessageTypingViewModel>();
+
 			builder.RegisterType<EventAggregator>().SingleInstance().As<IEventAggregator>();
 			builder.RegisterType<ApplicationState>().SingleInstance().As<IApplicationState>();
 			builder.RegisterType<KeysStorage>().SingleInstance().As<IKeysStorage>();

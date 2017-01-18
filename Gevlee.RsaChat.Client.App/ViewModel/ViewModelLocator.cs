@@ -1,3 +1,4 @@
+using System.Windows;
 using Akka.Actor;
 using Akka.DI.AutoFac;
 using Autofac;
@@ -27,6 +28,10 @@ namespace Gevlee.RsaChat.Client.App.ViewModel
 
 			var autoFacDependencyResolver = new AutoFacDependencyResolver(container, container.Resolve<ActorSystem>());
 			ServiceLocator.SetLocatorProvider(() => new AutofacServiceLocator(container));
+			Application.Current.Exit += (sender, args) =>
+			{
+				container.Resolve<ActorSystem>().Terminate();
+			};
 		}
 
 		public IMainViewModel Main => ServiceLocator.Current.GetInstance<IMainViewModel>();
