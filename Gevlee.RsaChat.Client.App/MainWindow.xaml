@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Gevlee.RsaChat.Client.App"
 		xmlns:views="clr-namespace:Gevlee.RsaChat.Client.App.View"
         mc:Ignorable="d"
-        Title="Rsa Chat Client" Height="350" Width="525"
+        Title="Rsa Chat Client" Height="600" Width="800"
 		DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
 	<Grid>
 		<Grid.RowDefinitions>

@@ -7,6 +7,7 @@ using Gevlee.RsaChat.Common.Cryptography;
 using Gevlee.RsaChat.Common.Messages;
 using Gevlee.RsaChat.Server.Core.Messages;
 using Gevlee.RsaChat.Server.Core.Services;
+using NLog;
 
 namespace Gevlee.RsaChat.Server.Core.Actors
 {
@@ -23,6 +24,7 @@ namespace Gevlee.RsaChat.Server.Core.Actors
 			Receive<ConnectRequest>(request =>
 			{
 				var clientName = clientNameProvider.Get(request.NicknameProposition);
+				Context.GetLogger().Info($"New connection: {clientName}");
 
 				var handler = Context.ActorOf(Context.DI().Props<ClientHandler>(), $"handlerof{clientName}");
 
@@ -41,15 +43,11 @@ namespace Gevlee.RsaChat.Server.Core.Actors
 					ClientRef = Sender,
 					ClientPublicKey = request.PublicKey
 				});
-
-				Context.GetLogger().Info($"Connected: {request.NicknameProposition}");
 			});
 		}
 
 		protected override void PreStart()
 		{
-			Console.WriteLine($"[{Self.Path}] - pre start");
-			base.PreStart();
 		}
 	}
 }

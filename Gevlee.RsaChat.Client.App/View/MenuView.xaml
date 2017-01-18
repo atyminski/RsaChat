@@ -9,13 +9,13 @@
              d:DesignHeight="300" d:DesignWidth="300">
 	<Grid>
 		<Menu x:Name="menu">
-			<MenuItem Header="Aplikacja">
+			<MenuItem Header="Aplikacja" Visibility="Collapsed">
 				<MenuItem Header="Wyjście" Command="{Binding ExitCommand}"></MenuItem>
 			</MenuItem>
 			<MenuItem Header="Serwer">
 				<MenuItem Header="Połącz" IsEnabled="{Binding ApplicationState.IsConnectedToServer, Converter={StaticResource InverseBoolConverter}}" Command="{Binding ConnectToServerCommand}"></MenuItem>
 			</MenuItem>
-			<MenuItem Header="O programie">
+			<MenuItem Header="O programie" Visibility="Collapsed">
 			</MenuItem>
 		</Menu>
 	</Grid>
