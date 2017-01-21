@@ -22,15 +22,16 @@ namespace Gevlee.RsaChat.Common.Cryptography
 
 		public void TryGetEncodedSigns(byte[] endodedContent, out string outStr)
 		{
+			outStr = string.Empty;
 			try
 			{
 				outStr = "BASE64: " +
 				         Convert.ToBase64String(
-					         GetBytesFromString(new string(GetLongArrayFromBytesArray(endodedContent).Select(a => (char) a).ToArray())));
+					         GetBytesFromString(new string(GetLongArrayFromBytesArray(endodedContent).Select(a => (char) a).ToArray()))) + "\n";
 			}
-			catch (Exception)
+			finally
 			{
-				outStr = "ONLY NUMBERS: " +
+				outStr += "NUMBERS: " +
 				         string.Join("", GetLongArrayFromBytesArray(endodedContent).Select(a => a.ToString()).ToArray());
 			}
 		}

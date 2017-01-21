@@ -31,11 +31,12 @@ namespace Gevlee.RsaChat.Server.Core.Actors
 			{
 				Context.GetLogger().Info($"New message from {handleReference.ClientName}");
 				TryLogEncodedMessage(message);
-				Context.ActorSelection("../handlerof*").Tell(new ShoutcastMessage
+				var shoutcastMessage = new ShoutcastMessage
 				{
 					Author = message.Author,
 					Content = this.rsaCryptoService.Decode(message.MessageBytes, handleReference.ServeRsaPrivateKey)
-				});
+				};
+				Context.ActorSelection("../handlerof*").Tell(shoutcastMessage);
 				Context.GetLogger().Info($"Message from {handleReference.ClientName} was shoutcasted to other clients");
 			});
 
@@ -51,10 +52,10 @@ namespace Gevlee.RsaChat.Server.Core.Actors
 
 		private void TryLogEncodedMessage(EncodedChatMessage msg)
 		{
-			string message = null;
+			string message;
 			rsaCryptoService.TryGetEncodedSigns(msg.MessageBytes, out message);
 			if (!string.IsNullOrEmpty(message))
-				Context.GetLogger().Info($"\nAuthor:{msg.Author}\nEncoded msg: {message}");
+				Context.GetLogger().Info($"\nAuthor:{msg.Author}\nEncoded msg:\n{message}");
 		}
 	}
 }
